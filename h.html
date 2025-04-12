@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful Button with D3.js</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Create a button element
+        const button = d3.select("body")
+            .append("button")
+            .text("Click Me!")
+            .style("padding", "15px 30px")
+            .style("font-size", "16px")
+            .style("color", "#fff")
+            .style("border", "none")
+            .style("border-radius", "25px")
+            .style("cursor", "pointer")
+            .style("background", "linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee, #f6d365)")
+            .style("background-size", "300% 300%")
+            .style("box-shadow", "0 4px 6px rgba(0, 0, 0, 0.1)")
+            .style("transition", "background 0.5s ease, transform 0.2s ease");
+
+        // Add hover effects
+        button.on("mouseover", function() {
+            d3.select(this)
+                .style("background-position", "100% 50%")
+                .style("transform", "scale(1.05)");
+        });
+
+        button.on("mouseout", function() {
+            d3.select(this)
+                .style("background-position", "0% 50%")
+                .style("transform", "scale(1)");
+        });
+
+        // Add click event
+        button.on("click", function() {
+            alert("Button clicked!");
+        });
+    </script>
+</body>
+</html>
